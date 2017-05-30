@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+
+  #
+  proxy:
+
+    build: ./proxy
+    image: nps-proxy:latest
+    container_name: nps-proxy
+    ports:
+      - "8080:80"
+
+        #volumes:
+        #- /home/chr/projects/portal/wurf1/pageassembler:/data/src
+
+    depends_on:
+      - greeter
+
+  #
+  # docker build setzt voraus, dass ein jar in target existiert...
+  # also mvn package vorher laufen lassen
+  greeter:
+    build: ./greeter
+    image: nps-greeter:latest
+    container_name: nps-greeter
+    ports:
+      - 8081:8080
+
