@@ -9,10 +9,8 @@ services:
     image: nps-proxy:latest
     container_name: nps-proxy
     ports:
-      - "8080:80"
+      - "9090:80"
 
-        #volumes:
-        #- /home/chr/projects/portal/wurf1/pageassembler:/data/src
 
     depends_on:
       - greeter
